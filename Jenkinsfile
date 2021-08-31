@@ -27,7 +27,7 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'sudo docker run -p 81:80 ${NUMBER}'
+			   sh 'sudo docker run -dti --name ${NUMBER} -p 81:80 ${NUMBER} /bin/bash'
 		   }		
             }
         }
