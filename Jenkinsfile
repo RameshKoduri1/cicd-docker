@@ -10,7 +10,7 @@ pipeline {
 		    steps {  
                            git branch: 'main',
 			     credentialsId: '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'
-                             url: 'https://github.com/RameshKoduri1/cicd-docker.git'   
+                             url: 'ssh://github.com/RameshKoduri1/cicd-docker.git'   
                            sh "ls -lat"
 		    }
 	    }
