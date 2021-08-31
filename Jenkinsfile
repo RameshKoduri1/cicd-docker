@@ -1,4 +1,9 @@
 pipeline {
+    environment { 
+   	NAME = "ramesh"
+   	VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
+   	IMAGE = "${NAME}:${VERSION}"
+    }
     agent any
     stages {
 	    stage('clean Workspace') {
@@ -16,7 +21,7 @@ pipeline {
 	    }
 	    stage('build') {
 		   steps {
-			 sh 'sudo docker build .'
+			 sh 'sudo docker build -t ${NAME} .'
 		   }		
             }
         }
