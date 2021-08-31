@@ -14,6 +14,11 @@ pipeline {
                            sh "ls -lat"
 		    }
 	    }
+	    stage('build') {
+		   steps {
+			 sh 'docker build -t Dockerfile .'
+		   }		
+            }
         }
     }
 	
