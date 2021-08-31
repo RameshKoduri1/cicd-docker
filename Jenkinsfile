@@ -27,7 +27,8 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER} /bin/bash'
+			   sh 'sudo docker kill $(docker ps -q)'
+			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p 82:80 ${NUMBER} /bin/bash'
 		   }		
             }
         }
