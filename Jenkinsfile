@@ -25,6 +25,11 @@ pipeline {
 			 sh 'sudo docker build -t ${NUMBER} .'
 		   }		
             }
+	    stage('deploy') {
+		   steps {
+			   sh 'sudo docker run -p 81:80 ${NUMBER}'
+		   }		
+            }
         }
     }
 	
