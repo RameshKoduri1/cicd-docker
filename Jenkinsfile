@@ -4,6 +4,7 @@ pipeline {
    	VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
    	IMAGE = "${NAME}:${VERSION}"
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
+	PRENUMBER = ${BUILD_NUMBER}-"1"
     }
     agent any
     stages {
@@ -27,6 +28,7 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
+			   sh 'echo ${PRENUMBER}'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER}'
 		   }		
             }
