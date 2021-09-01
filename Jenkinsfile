@@ -19,6 +19,7 @@ pipeline {
 			    script {
 				   // gitBranchCheckout(GET_REPO, BranchToBuild)
 				   echo "cloning code"
+				   sh "ls -lat"
 			    }
 		    }
 	    }
