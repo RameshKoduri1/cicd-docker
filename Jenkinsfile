@@ -17,7 +17,7 @@ pipeline {
 	    stage('clone') {
 		    steps {  
 			    script {
-				    gitBranchCheckout(GET_REPO, BranchToBuild, WORKSPACE)
+				    gitBranchCheckout(GET_REPO, BranchToBuild)
 			    }
 		    }
 	    }
