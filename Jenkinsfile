@@ -3,6 +3,7 @@ pipeline {
    	NAME = "ramesh"
    	IMAGE = "${NAME}:${VERSION}"
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
+	VERSION = "${BUILD_NUMBER}"
     }
     agent any
     stages {
@@ -26,8 +27,8 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'VERSION = ${BUILD_NUMBER}'
 			   sh 'VERS = "${VERSION}-1"'
+			   sh 'echo ${VERS}'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER}'
 		   }		
             }
