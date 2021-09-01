@@ -5,7 +5,7 @@ pipeline {
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
 	VERSION = "${BUILD_NUMBER}"
 	build_num = "${BUILD_NUMBER}"
-	pre_build_num = (build_num as int) - 1
+	pre_build_num = ($build_num as int) - 1
     }
     agent any
     stages {
