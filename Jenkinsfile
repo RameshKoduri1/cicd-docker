@@ -5,7 +5,6 @@ pipeline {
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
 	VERSION = "${BUILD_NUMBER}"
 	int build_num = "${BUILD_NUMBER}"
-	pre_build_num = build_num - 1
     }
     agent any
     stages {
@@ -29,7 +28,7 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'echo ${pre_build_num}'
+			   sh 'pre_build_num = ${build_num} - 1'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER}'
 		   }		
             }
