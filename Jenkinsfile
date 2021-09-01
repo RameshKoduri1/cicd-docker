@@ -5,6 +5,7 @@ pipeline {
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
 	VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
 	int build_num = "${BUILD_NUMBER}"
+	GET_REPO = "https://github.com/RameshKoduri1/cicd-docker.git"
     }
     agent any
     stages {
@@ -15,10 +16,9 @@ pipeline {
 	    }
 	    stage('clone') {
 		    steps {  
-                           git branch: 'main',
-			     credentialsId: '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',
-                             url: 'https://github.com/RameshKoduri1/cicd-docker.git'   
-                           sh "ls -lat"
+			    script {
+				    gitBranchCheckout(GET_REPO, BranchToBuild, WORKSPACE)
+			    }
 		    }
 	    }
 	    stage('build') {
