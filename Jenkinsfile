@@ -19,10 +19,13 @@ pipeline {
 			    script {
 				   // gitBranchCheckout(GET_REPO, BranchToBuild)
 				   //echo "cloning code"
-				   git branch: 'main',
+				   //git branch: 'main',
+				   sh ‘git branch -r | awk \'{print $1}\’ ORS=\’\\n\’ >branches.txt’
+				   sh ”’cut -d ‘/’ -f 2 branches.txt > branch.txt”’
 			      		credentialsId: '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', 
                              		url: 'https://github.com/RameshKoduri1/cicd-docker.git'   
-                                   sh "ls -lat"
+				  // sh ‘git branch -r | awk \'{print $1}\’ ORS=\’\\n\’ >branches.txt’
+				   sh "ls -lat"
 			    }
 		    }
 	    }
