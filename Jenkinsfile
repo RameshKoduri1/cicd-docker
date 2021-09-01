@@ -19,7 +19,7 @@ pipeline {
 			    script {
 				   // gitBranchCheckout(GET_REPO, BranchToBuild)
 				   //echo "cloning code"
-				   git branch: 'qa',
+				   git branch: 'main',
 			      		credentialsId: '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', 
                              		url: 'https://github.com/RameshKoduri1/cicd-docker.git'   
                                    sh "ls -lat"
