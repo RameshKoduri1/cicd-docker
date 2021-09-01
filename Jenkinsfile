@@ -27,7 +27,7 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'pre_build_num = (BUILD_NUMBER as int) - 1'
+			   sh 'pre_build_num = {$BUILD_NUMBER as int} - 1'
 			   sh 'echo ${pre_build_num}'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER}'
 		   }		
