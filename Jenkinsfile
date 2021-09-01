@@ -4,7 +4,6 @@ pipeline {
    	VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
    	IMAGE = "${NAME}:${VERSION}"
 	NUMBER = "${NAME}:${BUILD_NUMBER}"
-	PRENUMBER = ${BUILD_NUMBER.NUMBER} - 1
     }
     agent any
     stages {
