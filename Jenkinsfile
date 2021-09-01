@@ -28,7 +28,8 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'echo ${PRENUMBER}'
+			   sh 'VERSION = ${BUILD_NUMBER}'
+			   sh 'VERSION = "${VERSION}-1"'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p ${BUILD_NUMBER}:80 ${NUMBER}'
 		   }		
             }
