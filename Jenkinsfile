@@ -18,6 +18,7 @@ pipeline {
 		    steps {  
 			    script {
 				   // gitBranchCheckout(GET_REPO, BranchToBuild)
+				   echo "cloning code"
 			    }
 		    }
 	    }
