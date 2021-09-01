@@ -27,7 +27,6 @@ pipeline {
             }
 	    stage('deploy') {
 		   steps {
-			   sh 'sudo docker rm $(docker ps -a -q)'
 			   sh 'sudo docker run -dti --name ${NAME}-${BUILD_NUMBER} -p 82:80 ${NUMBER} /bin/bash'
 		   }		
             }
